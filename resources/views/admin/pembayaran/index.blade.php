@@ -17,7 +17,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Pembayaran</h3>
                             <div class="float-right">
-                                <a href="{{ route('tambah.pembayaran') }}">
+                                <a href="{{ route('index.pembayaran') }}">
                                     <button class="btn btn-primary btn-sm" id="add"><i class="fa fa-plus-circle"></i>
                                         Tambah Pembayaran
                                     </button>
@@ -30,10 +30,10 @@
                                 <thead>
                                 <tr>
                                     <th width="10px">No</th>
-                                    <th>id Transaksi</th>
-                                    <th>Nama Nasabah</th>
+                                    <th>id Transaksi</th> 
                                     <th>Jumlah Pinjaman</th>
                                     <th>Pembayaran Ke</th>
+                                    <th>Denda</th>
                                     <th>Status</th>
                                     <th width="50px">Action</th>
                                 </tr>
@@ -43,10 +43,10 @@
 
                                     <tr>
                                     <td widtd="10px">{{ ++$no}}</td>
-                                    <td>{{ $v->id_transaksi}}</td>
-                                    <td>{{ $v->nasabah->nama}}</td>
-                                    <td>{{ $v->jumlah_pinjaman}}</td>
-                                    <td>0</td>
+                                    <td>{{ $v->id_transaksi}}</td> 
+                                    <td>{{ $v->jumlahbayar}}</td>
+                                    <td>{{ $v->tenor}}</td>
+                                    <td>{{ $v->denda}}</td>
                                     <td>{{ $v->status ==1 ? "Belum Lunas" : "Lunas"}}</td>
 
                                     <td width="13%">

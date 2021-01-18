@@ -19,7 +19,7 @@ class CreateTblNasabahTable extends Migration
             $table->string('nama',30)->nullable();
             $table->string('username',10)->nullable();
             $table->string('email',30)->nullable();
-            $table->string('password',6)->nullable();
+            $table->string('password')->nullable();
             $table->enum('jkl', array('pria', 'wanita'));
             $table->string('no_hp',100)->nullable();
             $table->string('alamat',100)->nullable();

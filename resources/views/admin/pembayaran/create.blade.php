@@ -20,7 +20,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form id="myForm" class="form-horizontal" method="POST" action="{{ route('store_brg')}}"
+                        <form id="myForm" class="form-horizontal" method="POST" action="{{ route('store.pembayaran')}}"
                               enctype="multipart/form-data">
                               {{csrf_field()}}
                             

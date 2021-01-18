@@ -42,8 +42,12 @@ Route::put('barang/{id}','ProdukController@update')->name('update_brg');
 Route::get('pinjam_barang','Pinjam_brgController@index')->name('pinjam_brg');
 Route::get('peminjaman_uang','PinjamUangController@index')->name('peminjamanu');
 Route::get('peminjaman_uang/tambah_pinjaman','PinjamUangController@create')->name('tambah_pinjamu');
+
 Route::get('pembayaran','PembayaranController@index')->name('index.pembayaran');
-Route::get('pembayaran/tambah_pembayaran','PembayaranController@create')->name('tambah.pembayaran');
+Route::get('pembayaran/tambah_pembayaran/{id}','PembayaranController@create')->name('tambah.pembayaran');
+Route::post('pembayaran/create','PembayaranController@store')->name('store.pembayaran');
+
+
 Route::get('Setting','SettingController@index')->name('set');
 Route::get('setting/create','SettingController@create')->name('setup');
 Route::post('setting/create','SettingController@store')->name('storeset');

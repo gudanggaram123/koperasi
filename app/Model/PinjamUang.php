@@ -17,15 +17,11 @@ class PinjamUang extends Model
         'jaminan', 
         'jumlah_pinjaman', 
         'bayar_perbulan', 
-        'bunga', 'tenor', 
+        'bunga', 
+        'tenor', 
         'status', 
         'created_at', 
-        'updated_at'
-        
-        
-        
-        
-
+        'updated_at' 
     ];
     
     public function nasabah(){
