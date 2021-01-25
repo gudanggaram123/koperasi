@@ -6,7 +6,7 @@
     <div class="col-sm-4">
           <div class="form-group">
              <label>Nama Nasabah</label>
-                 <select class="form-control" name="status">
+                 <select class="form-control" name="id_nasabah">
                      @foreach (\App\Model\Nasabah::all() as $v)
                      
                  <option value="{{$v->id}}">{{$v->nama}}</option>
@@ -20,7 +20,7 @@
    <div class="col-sm-4">
           <div class="form-group">
              <label>Barang Pinjaman</label>
-                 <select class="form-control" name="status">
+                 <select class="form-control" name="id_produk">
                      @foreach (\App\Model\produk::all() as $v)
                      
                  <option value="{{$v->id}}">{{$v->nama_brg}}</option>
@@ -38,7 +38,7 @@
    <div class="col-sm-3">
                    <div class="form-group">
                        <label >Tanggal Pinjam</label>
-      <input type="date" required name="tgl_lahir" max="3000-12-31" 
+      <input type="date" required name="tgl_pinjam" max="3000-12-31" 
         min="1000-01-01" class="form-control">
                       <div class="input-group">
                         <div class="input-group-prepend">
@@ -51,7 +51,7 @@
    <div class="col-sm-3">
                    <div class="form-group">
                        <label >Tanggal dikembalikan</label>
-      <input type="date" required name="tgl_lahir" max="3000-12-31" 
+      <input type="date" required name="tgl_kembali" max="3000-12-31" 
         min="1000-01-01" class="form-control">
                       <div class="input-group">
                         <div class="input-group-prepend">

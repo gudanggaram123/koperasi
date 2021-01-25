@@ -19,6 +19,7 @@ class nasabah extends Model
         'tempat_lahir', 
         'tgl_lahir', 
         'no_ktp', 
+        'status', 
         'updated_at',
         'created_at'
 

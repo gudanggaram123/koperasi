@@ -15,14 +15,14 @@
             <div class="form-group">
                 <label>Nama Nasabah</label>
                 <input type="text" value="{{ isset($datanasabah->nama) ? $datanasabah->nama: null  }}" class="form-control" name="nama" readonly class="form-control" autocomplete="off" required />
-
+                <input type="hidden" value="{{ isset($datanasabah->id) ? $datanasabah->id: null  }}" class="form-control" name="id_nasabah" readonly class="form-control" autocomplete="off" required />
             </div>
         </div>
 
         <div class="col-sm-6">
             <div class="form-group">
                 <label>Pembayaran Ke</label>
-                <input type="text" class="form-control" name="tenor" class="form-control"  readonly value="{{ isset($angsuran) ? $angsuran + 1 : 1  }}" required />
+                <input type="text" class="form-control" name="tenor" class="form-control"  readonly value="{{ $angsuran }}" required />
             </div>
         </div>
 

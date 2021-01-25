@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model\nasabah;
+use App\Model\pinjambrg;
 
 class Pinjam_brgController extends Controller
 {
@@ -36,7 +38,9 @@ class Pinjam_brgController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $model = $request->all(); 
+        pinjambrg::create($request->all());
+        return redirect('/pinjam_barang')->with('toast_success', 'Rental Berhasil Menambahkan');
     }
 
     /**

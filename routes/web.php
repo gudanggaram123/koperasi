@@ -39,14 +39,20 @@ Route::get('barang/tambahbrg','ProdukController@create')->name('tambah_brg');
 Route::post('barang/create','ProdukController@store')->name('store_brg');
 Route::get('barang/{id}','ProdukController@edit')->name('show_brg');
 Route::put('barang/{id}','ProdukController@update')->name('update_brg');
-Route::get('pinjam_barang','Pinjam_brgController@index')->name('pinjam_brg');
 Route::get('peminjaman_uang','PinjamUangController@index')->name('peminjamanu');
 Route::get('peminjaman_uang/tambah_pinjaman','PinjamUangController@create')->name('tambah_pinjamu');
 
+// pinjam barang
+Route::get('pinjam_barang','Pinjam_brgController@index')->name('pinjam_brg');
+Route::post('pinjam/barang/create','Pinjam_brgController@store')->name('store.pinjam_brg');
+
+// bayar pinjaman
 Route::get('pembayaran','PembayaranController@index')->name('index.pembayaran');
 Route::get('pembayaran/tambah_pembayaran/{id}','PembayaranController@create')->name('tambah.pembayaran');
 Route::post('pembayaran/create','PembayaranController@store')->name('store.pembayaran');
-
+Route::get('pembayaran/{id}','PembayaranController@edit')->name('edit.pembayaran');
+Route::post('pembayaran/update','PembayaranController@update')->name('update.pembayaran');
+Route::get('pembayaran/delete/{id}','PembayaranController@destroy')->name('delete.pembayaran');
 
 Route::get('Setting','SettingController@index')->name('set');
 Route::get('setting/create','SettingController@create')->name('setup');

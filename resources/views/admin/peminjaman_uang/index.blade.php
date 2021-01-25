@@ -42,7 +42,7 @@
                                 <tr>
                                     <td widtd="10px">{{ ++$no}}</td>
                                     <td>{{ $v->id_transaksi}}</td>
-                                    <td>{{ $v->nasabah->nama}}</td>
+                                    <td>{{ $v->nasabah['nama']}}</td>
                                     <td>{{ $v->jumlah_pinjaman}}</td>
                                     <td>{{ $v->bayar_perbulan}}</td>
                                     <td>{{ $v->bunga}}</td>

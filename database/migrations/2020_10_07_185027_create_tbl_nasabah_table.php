@@ -27,10 +27,7 @@ class CreateTblNasabahTable extends Migration
             $table->date('tgl_lahir')->nullable();
             $table->string('no_ktp',100)->nullable();
             $table->enum('status',['1','0'])->default(1);
-
-
-
-
+            $table->enum('status_brg',['1','0'])->default(1); 
             $table->timestamps();
         });
     }

@@ -16,9 +16,9 @@ class PinjamUangController extends Controller
      */
     public function index()
     {
-        $datau = PinjamUang::paginate(3);
-        
-      return view('admin.peminjaman_uang.index', compact('datau'));
+        $datau = PinjamUang::all();
+        // dd($datau);
+        return view('admin.peminjaman_uang.index', compact('datau'));
     }
 
     /**
@@ -28,13 +28,19 @@ class PinjamUangController extends Controller
      */
     public function create()
     {
-           $nasabah = nasabah:: leftjoin ('transaksi_pinjam_uang', 'transaksi_pinjam_uang.id_nasabah', '=', 'nasabah.id')
+        // $nasabah = nasabah::select('nasabah.*','transaksi_pinjam_uang.*','transaksi_pinjam_uang.status as sts')
+        // ->join('transaksi_pinjam_uang','transaksi_pinjam_uang.id_nasabah','=','nasabah.id')
+        // ->where('nasabah.status','0')
+        // // ->orWhere('transaksi_pinjam_uang.status',null)
+        // ->get();
+        $nasabah = nasabah::where('status',"=","0")->get();
+        //    $nasabah = nasabah:: leftjoin ('transaksi_pinjam_uang', 'transaksi_pinjam_uang.id_nasabah', '=', 'nasabah.id')
         
-            ->select('nasabah.*','transaksi_pinjam_uang.status as sts')
-            ->where('transaksi_pinjam_uang.status','0')
-            ->orWhere('transaksi_pinjam_uang.status',null)
-            ->get();
-            
+        //     ->select('nasabah.*','transaksi_pinjam_uang.status as sts')
+        //     ->where('transaksi_pinjam_uang.status','0')
+        //     ->orWhere('transaksi_pinjam_uang.status',null)
+        //     ->get();
+            // dd($nasabah);
       return view('admin.peminjaman_uang.create',compact('nasabah'));
         
     }
@@ -47,8 +53,16 @@ class PinjamUangController extends Controller
      */
     public function store(Request $request)
     {
+        $model = $request->all();
         PinjamUang::create($request->all());
-        return redirect('/peminjaman_uang')->with('toast_success', 'Berhasil Menambahkan Pinjamank');
+        $data['status'] = 1;
+        $data['id'] = $model['id_nasabah'];
+        $nasabah = nasabah::find($model['id_nasabah']);
+        // dd($data);
+        if($nasabah->update($data)){
+            // dd($nasabah);
+        }
+        return redirect('/peminjaman_uang')->with('toast_success', 'Berhasil Menambahkan Pinjaman');
     }
 
     /**

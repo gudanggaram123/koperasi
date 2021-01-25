@@ -19,6 +19,7 @@ class CreateTransaksiBarangsTable extends Migration
             $table->foreignId('id_produk');
             $table->date('tgl_pinjam');
             $table->date('tgl_kembali');
+            $table->double('hrg_sewa');
             $table->double('denda');
             $table->enum('status',['1','0'])->default(1);
             $table->timestamps();

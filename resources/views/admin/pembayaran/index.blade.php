@@ -42,28 +42,24 @@
                                     @foreach ($datau as $no => $v) 
 
                                     <tr>
-                                    <td widtd="10px">{{ ++$no}}</td>
-                                    <td>{{ $v->id_transaksi}}</td> 
-                                    <td>{{ $v->jumlahbayar}}</td>
-                                    <td>{{ $v->tenor}}</td>
-                                    <td>{{ $v->denda}}</td>
-                                    <td>{{ $v->status ==1 ? "Belum Lunas" : "Lunas"}}</td>
-
-                                    <td width="13%">
-
-                                        <a href="#">
-                                    <button class="btn btn-info btn-xs" id="add">
-                                        <i class="fa fa-edit"></i>
-                                    
-                                    </button>
-                                </a><a href="#">
-                                    <button class="btn btn-danger btn-xs" id="add">
-                                        <i class="fa fa-trash"></i>
-                                
-                                    </button>
-                                </a>
-                                        </td>
-
+                                        <td widtd="10px">{{ ++$no}}</td>
+                                        <td>{{ $v->id_transaksi}}</td> 
+                                        <td>{{ $v->jumlahbayar}}</td>
+                                        <td>{{ $v->tenor}}</td>
+                                        <td>{{ $v->denda}}</td>
+                                        <td>{{ $v->status ==1 ? "Belum Lunas" : "Lunas"}}</td> 
+                                        <td width="13%"> 
+                                            <a href="{{route('edit.pembayaran',$v->id)}}">
+                                                <button class="btn btn-info btn-xs" id="add">
+                                                    <i class="fa fa-edit"></i> 
+                                                </button>
+                                            </a>
+                                            <a href="{{route('delete.pembayaran',$v->id)}}">
+                                                <button class="btn btn-danger btn-xs" id="add">
+                                                    <i class="fa fa-trash"></i> 
+                                                </button>
+                                            </a>
+                                        </td> 
                                     </tr>
                                     @endforeach 
 
@@ -71,8 +67,8 @@
                             </table>
 
                         </div>
-                        <div class="card-body">
-
+                        <div class="card-footer">
+                            {{ $datau->links() }}
 
                         </div>
 
