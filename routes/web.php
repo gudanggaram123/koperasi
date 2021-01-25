@@ -45,6 +45,8 @@ Route::get('peminjaman_uang/tambah_pinjaman','PinjamUangController@create')->nam
 // pinjam barang
 Route::get('pinjam_barang','Pinjam_brgController@index')->name('pinjam_brg');
 Route::post('pinjam/barang/create','Pinjam_brgController@store')->name('store.pinjam_brg');
+Route::get('pengembalian/barang/{id}','Pinjam_brgController@update')->name('pengembalian.barang');
+
 
 // bayar pinjaman
 Route::get('pembayaran','PembayaranController@index')->name('index.pembayaran');

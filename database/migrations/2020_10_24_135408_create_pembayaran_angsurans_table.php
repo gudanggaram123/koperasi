@@ -15,7 +15,7 @@ class CreatePembayaranAngsuransTable extends Migration
     {
         Schema::create('pembayaran_angsuran', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_transaksi');
+            $table->string('id_transaksi');
             $table->double('tenor');
             $table->double('jumlahbayar');
             $table->date('tgl_pinjam');
