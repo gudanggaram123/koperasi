@@ -59,12 +59,12 @@
                                                 <i class="fa fa-plus"></i>
                                             </button>
                                         </a>
-                                        @endif
                                         <a href="#">
                                             <button class="btn btn-info btn-xs" id="add">
                                                 <i class="fa fa-edit"></i>
                                             </button>
                                         </a>
+                                        @endif
                                         <a href="#">
                                             <button class="btn btn-danger btn-xs" id="add">
                                                 <i class="fa fa-trash"></i>

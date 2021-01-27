@@ -17,7 +17,7 @@ class SettingController extends Controller
     public function index()
     {
         $data = Setting::first();
-        
+        // dd($data);
         return view('admin.setting.index',compact('data'));
     }
 

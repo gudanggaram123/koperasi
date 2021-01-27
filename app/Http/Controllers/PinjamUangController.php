@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 use App\Model\nasabah;
 use App\Model\PinjamUang;
-
-
+use App\Model\Setting;
 use Illuminate\Http\Request;
 
 class PinjamUangController extends Controller
@@ -84,7 +83,10 @@ class PinjamUangController extends Controller
      */
     public function edit($id)
     {
-        //
+        $PinjamUang = PinjamUang::find($id);
+        $nasabah = nasabah::find($PinjamUang['id_nasabah']);
+        // dd($PinjamUang);
+        return view('admin.peminjaman_uang.edit',compact('PinjamUang','nasabah'));  
     }
 
     /**
@@ -94,9 +96,14 @@ class PinjamUangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $model = $request->all();
+        $data = PinjamUang::find($model['id']);
+
+        $data->update($model);
+        return redirect('/peminjaman_uang')->with('toast_success', 'Data Berhasil di Update');
+
     }
 
     /**
@@ -107,6 +114,17 @@ class PinjamUangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = PinjamUang::find($id);
+        $setting = Setting::find(1);
+        $saldo['saldo'] = $data['jumlah_pinjaman'] + $setting['saldo'];
+        
+        $nasabah = nasabah::find($data['id_nasabah']);
+        $status_nasabah['status'] = "0";
+        $nasabah->update($status_nasabah);
+
+        $setting->update($saldo);
+        $data->delete();
+
+        return redirect('/peminjaman_uang')->with('toast_success', 'Data Berhasil di hapus');
     }
 }

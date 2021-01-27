@@ -7,32 +7,29 @@
         <div class="col-sm-6">
             <div class="form-group">
                 <label>Id Transaksi</label>
-                <input type="text" value="{{ isset($data->kd_nasabah) ? $data->kd_nasabah: generate_codetr()  }}" class="form-control" name="id_transaksi" readonly class="form-control" autocomplete="off" required />
+                <input type="text" value="{{ isset($PinjamUang->kd_nasabah) ? $PinjamUang->kd_nasabah: generate_codetr()  }}" class="form-control" name="id_transaksi" readonly class="form-control" autocomplete="off" required />
             </div>
         </div>
 
         <div class="col-sm-6">
             <div class="form-group">
                 <label>Nama Nasabah</label>
-                <select class="form-control" name="id_nasabah">
-                    @foreach ($nasabah as $v) 
-                    <option value="{{$v->id}}">{{$v->nama}}</option> 
-                    @endforeach
-                </select>
+
+                <input type="text" class="form-control" readonly  class="form-control"  value="{{ isset($nasabah->nama) ? $nasabah->nama : null  }}" required />
             </div>
         </div>
 
         <div class="col-sm-6">
             <div class="form-group">
                 <label>Jumlah Pinjaman</label>
-                <input type="text" class="form-control" name="jumlah_pinjaman" id="jumlah" class="form-control" autocomplete="off" value="{{ isset($data->username) ? $data->username : null  }}" required />
+                <input type="text" class="form-control" name="jumlah_pinjaman" id="jumlah" class="form-control" autocomplete="off" value="{{ isset($PinjamUang->jumlah_pinjaman) ? $PinjamUang->jumlah_pinjaman : null  }}" required />
             </div>
         </div>
 
         <div class="col-sm-6">
             <div class="form-group">
                 <label>Bayar Perbulan</label>
-                <input type="text" class="form-control" id="angsuran" readonly name="bayar_perbulan" class="form-control" autocomplete="off" value="{{ isset($data->username) ? $data->username : null  }}" required />
+                <input type="text" class="form-control" id="angsuran" readonly name="bayar_perbulan" class="form-control" autocomplete="off" value="{{ isset($PinjamUang->bayar_perbulan) ? $PinjamUang->bayar_perbulan : null  }}" required />
             </div>
         </div>
 
@@ -59,7 +56,7 @@
         <div class="col-sm-3">
             <div class="form-group">
                 <label>Bunga</label>
-                <input type="text" class="form-control" id="bunga" name="bunga" class="form-control" autocomplete="off" value="{{ isset($data->username) ? $data->username : null  }}" required />
+                <input type="text" class="form-control" id="bunga" name="bunga" class="form-control" autocomplete="off" value="{{ isset($PinjamUang->bunga) ? $PinjamUang->bunga : null  }}" required />
             </div>
         </div>
 
@@ -76,14 +73,14 @@
         <div class="col-sm-6">
             <div class="form-group">
                 <label>jaminan</label>
-                <input type="text" value="" class="form-control" name="jaminan" class="form-control" autocomplete="off" required />
+                <input type="text" value="{{ $PinjamUang->jaminan}}" class="form-control" name="jaminan" class="form-control" autocomplete="off" required />
             </div>
         </div>
 
         <div class="col-sm-3">
             <div class="form-group">
                 <label>Tanggal Peminjaman</label>
-                <input type="date" required name="tgl_pinjam" max="3000-12-31" min="1000-01-01" value="{{ isset($data->tgl_lahir) ? $data->tgl_lahir : null  }}" class="form-control" />
+                <input type="date" required name="tgl_pinjam" max="3000-12-31" min="1000-01-01" value="{{ isset($PinjamUang->tgl_pinjam) ? $PinjamUang->tgl_pinjam : null  }}" class="form-control" />
                 <div class="input-group">
                     <div class="input-group-prepend"></div>
                 </div>
@@ -93,7 +90,7 @@
         <div class="col-sm-3">
             <div class="form-group">
                 <label>Jatuh Tempo</label>
-                <input type="date" required name="tgl_kembali" max="3000-12-31" min="1000-01-01" value="{{ isset($data->tgl_lahir) ? $data->tgl_lahir : null  }}" class="form-control" />
+                <input type="date" required name="tgl_kembali" max="3000-12-31" min="1000-01-01" value="{{ isset($PinjamUang->tgl_kembali) ? $PinjamUang->tgl_kembali : null  }}" class="form-control" />
                 <div class="input-group">
                     <div class="input-group-prepend"></div>
                 </div>

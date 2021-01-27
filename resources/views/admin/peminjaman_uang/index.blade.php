@@ -24,7 +24,7 @@
                             <thead>
                                 <tr>
                                     <th width="10px">No</th>
-                                    <th>id Transaksi</th>
+                                    <th>ID Transaksi</th>
                                     <th>Nama Nasabah</th>
                                     <th>Jumlah Pinjaman</th>
                                     <th>Bayar perbulan</th>
@@ -59,12 +59,12 @@
                                             </button>
                                         </a>
                                         @endif
-                                        <a href="#">
+                                        <a href="{{route('edit.pinjamu',$v->id)}}">
                                             <button class="btn btn-info btn-xs" id="add">
                                                 <i class="fa fa-edit"></i>
                                             </button>
                                         </a>
-                                        <a href="#">
+                                        <a href="{{route('delete.peminjaman_uang',$v->id)}}">
                                             <button class="btn btn-danger btn-xs" id="add">
                                                 <i class="fa fa-trash"></i>
                                             </button>

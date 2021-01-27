@@ -39,8 +39,13 @@ Route::get('barang/tambahbrg','ProdukController@create')->name('tambah_brg');
 Route::post('barang/create','ProdukController@store')->name('store_brg');
 Route::get('barang/{id}','ProdukController@edit')->name('show_brg');
 Route::put('barang/{id}','ProdukController@update')->name('update_brg');
+
+// pinjam uang
 Route::get('peminjaman_uang','PinjamUangController@index')->name('peminjamanu');
 Route::get('peminjaman_uang/tambah_pinjaman','PinjamUangController@create')->name('tambah_pinjamu');
+Route::get('peminjaman_uang/edit_pinjaman/{id}','PinjamUangController@edit')->name('edit.pinjamu');
+Route::get('peminjaman_uang/delete/{id}','PinjamUangController@destroy')->name('delete.peminjaman_uang');
+Route::post('peminjaman_uang/update','PinjamUangController@update')->name('update.pinjamu');
 
 // pinjam barang
 Route::get('pinjam_barang','Pinjam_brgController@index')->name('pinjam_brg');
