@@ -17,11 +17,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 Route::auth(); 
-Route::get('/','HomeController@index');
+Route::get('/home','HomeController@index');
 Route::get('datanasabah','CrudController@index');
 Route::get('datanasabah/inputnasabah','CrudController@tambahdatanasabah')->name('in.datanb');
 //     return view('datanasabah');    
 // });
+
+Route::get('/','HomeController@nasabah');
+Route::post('/','HomeController@datanasabah')->name('data_nasabah');
+
+
 
 // Route::view('/welcome', 'welcome');
 
