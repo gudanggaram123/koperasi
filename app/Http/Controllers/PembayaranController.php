@@ -6,6 +6,9 @@ use App\Model\PembayaranAngsuran;
 use App\Model\PinjamUang;
 use App\Model\Setting;
 use DateTime;
+use App\Export\PembayaranAngsuranExport;
+use App\Export\PeminjamanBarangExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 use Illuminate\Http\Request;
 
@@ -24,6 +27,19 @@ class PembayaranController extends Controller
         
     }
 
+    public function export_excel(Request $request)
+	{
+        $model  = $request->all();
+
+		return Excel::download(new PembayaranAngsuranExport($model['tgl_mulai'], $model['tgl_sampai']), 'PembayaranAngsuran.xlsx');
+    }
+    
+    public function export_excel_barang(Request $request)
+	{
+        $model  = $request->all();
+
+		return Excel::download(new PeminjamanBarangExport($model['tgl_mulai'], $model['tgl_sampai']), 'PemijamanBarang.xlsx');
+    }
     /**
      * Show the form for creating a new resource.
      *

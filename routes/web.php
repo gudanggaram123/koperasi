@@ -26,6 +26,9 @@ Route::get('datanasabah/inputnasabah','CrudController@tambahdatanasabah')->name(
 Route::get('/','HomeController@nasabah');
 Route::post('/','HomeController@datanasabah')->name('data_nasabah');
 
+Route::get('report','HomeController@report')->name('report');
+Route::post('pembayaran/export','PembayaranController@export_excel')->name('export.pembayaran');
+Route::post('pembayaran/export/barang','PembayaranController@export_excel_barang')->name('export.barang');
 
 
 // Route::view('/welcome', 'welcome');
@@ -58,7 +61,9 @@ Route::post('pinjam/barang/create','Pinjam_brgController@store')->name('store.pi
 Route::get('pengembalian/barang/{id}','Pinjam_brgController@update')->name('pengembalian.barang');
 
 
+
 // bayar pinjaman
+// Route::get('pembayaran/export','PembayaranController@export_excel')->name('export.pembayaran');
 Route::get('pembayaran','PembayaranController@index')->name('index.pembayaran');
 Route::get('pembayaran/tambah_pembayaran/{id}','PembayaranController@create')->name('tambah.pembayaran');
 Route::post('pembayaran/create','PembayaranController@store')->name('store.pembayaran');

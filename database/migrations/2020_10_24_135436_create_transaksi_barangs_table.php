@@ -21,7 +21,7 @@ class CreateTransaksiBarangsTable extends Migration
             $table->date('tgl_kembali');
             $table->double('hrg_sewa');
             $table->double('total_sewa');
-            $table->double('denda');
+            $table->double('denda')->nullable();
             $table->enum('status',['1','0'])->default(1);
             $table->timestamps();
         });

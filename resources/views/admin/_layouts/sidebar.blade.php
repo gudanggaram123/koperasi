@@ -113,7 +113,14 @@
                 </a>
               </li>
             </ul> -->
-                </li>
+                </li> 
+                
+                <li class="nav-item">
+                    <a href="{{ url('report') }}" class="nav-link">
+                        <i class="nav-icon far fa-plus-square"></i>
+                        <p>Laporan</p>
+                    </a>
+                </li> 
 
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">

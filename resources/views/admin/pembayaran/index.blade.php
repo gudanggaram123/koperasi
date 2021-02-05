@@ -21,6 +21,11 @@
                                     <button class="btn btn-primary btn-sm" id="add"><i class="fa fa-plus-circle"></i>
                                         Tambah Pembayaran
                                     </button>
+                                </a>    
+                                <a href="{{ route('export.pembayaran') }}">
+                                    <button class="btn btn-primary btn-sm" id="add"> 
+                                        Export Excel
+                                    </button>
                                 </a>
                             </div>
                         </div>

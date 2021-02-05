@@ -9,6 +9,7 @@ class produk extends Model
     protected $table="produk";
     protected $primarykey="id";
     protected $fillable=[
+        'id',
         'nama_brg',
         'stok_brg',
         'status',
