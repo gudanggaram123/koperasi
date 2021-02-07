@@ -29,7 +29,7 @@ class NasabahController extends Controller
     public function simpannb(Request $request)
     {
         nasabah::create($request->all());
-        return redirect('/nasabah')->with('toast_success', 'Berhasil Menambahkan Data');
+        return redirect('/daftar-nasabah')->with('toast_success', 'Berhasil Menambahkan Data');
     }
 
 
@@ -86,7 +86,7 @@ class NasabahController extends Controller
         $data = nasabah::find($id);
         $model = $request->all();
         $data->update($model);
-        return redirect('/nasabah')->with('toast_success', 'Data Berhasil Diupdate');
+        return redirect('/daftar-nasabah')->with('toast_success', 'Data Berhasil Diupdate');
 
         
     }
@@ -101,7 +101,7 @@ class NasabahController extends Controller
     {
         $data = nasabah::find($id);
         $data->delete();
-        return redirect('/nasabah')->with('toast_success', 'Data Berhasil di hapus');
+        return redirect('/daftar-nasabah')->with('toast_success', 'Data Berhasil di hapus');
 
     }
 }

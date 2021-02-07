@@ -35,7 +35,7 @@ Route::post('pembayaran/export/barang','PembayaranController@export_excel_barang
 
 // Route::redirect('/', '/home');
 
-Route::get('nasabah','NasabahController@index')->name('view_nb');
+Route::get('daftar-nasabah','NasabahController@index')->name('view_nb');
 Route::get('nasabah/create','NasabahController@tambahdatanb')->name('formin_nb');
 Route::post('nasabah/create','NasabahController@simpannb')->name('tambah_nb');
 Route::get('edit','NasabahController@editnb')->name('form_edit');
