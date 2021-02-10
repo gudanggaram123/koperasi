@@ -32,14 +32,10 @@ class NasabahController extends Controller
         return redirect('/daftar-nasabah')->with('toast_success', 'Berhasil Menambahkan Data');
     }
 
-
-
     public function editnb()
     {
         return view('admin.admin.edit');
     }
-
-
 
     /**
      * Store a newly created resource in storage.
