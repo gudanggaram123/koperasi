@@ -61,6 +61,7 @@ class PinjamUangController extends Controller
         if($nasabah->update($data)){
             // dd($nasabah);
         }
+        
         return redirect('/peminjaman_uang')->with('toast_success', 'Berhasil Menambahkan Pinjaman');
     }
 

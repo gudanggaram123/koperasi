@@ -76,7 +76,16 @@ class PembayaranController extends Controller
         $tanggal_kembali = strtotime($model['tgl_pinjam']);
         $batas_pengembalian = strtotime($pinjamuang->tgl_kembali); 
         // dd($pinjamuang);
+        // dd($model);
         $percen = $pinjamuang->jumlah_pinjaman * 0.01; 
+        
+        $batas_pengembalian = strtotime($pinjamuang->tgl_pinjam) + $model['tenor'] * 3600 * 24 * 30;
+
+        // $jatuhtempo = strtotime($pinjamuang->tgl_pinjam) + $model['tenor'] * 3600 * 24 * 30; 
+
+        // dd( date('Y-m-d',$jatuhtempo));
+       
+
 
         if($batas_pengembalian > $tanggal_kembali){
             $model['denda'] = 0;
