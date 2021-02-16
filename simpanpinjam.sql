@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Des 2020 pada 11.11
--- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.2.33
+-- Generation Time: Feb 16, 2021 at 12:24 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `simpanpinjam_db`
+-- Database: `simpanpinjam`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -39,7 +39,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -49,26 +49,24 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(56, '2014_10_12_000000_create_users_table', 1),
-(57, '2014_10_12_100000_create_password_resets_table', 1),
-(58, '2019_08_19_000000_create_failed_jobs_table', 1),
-(59, '2020_10_07_185027_create_tbl_nasabah_table', 1),
-(60, '2020_10_07_185126_create_tbl_transaksi_table', 1),
-(61, '2020_10_07_185158_create_tbl_produk_table', 1),
-(62, '2020_10_24_135408_create_pembayaran_angsurans_table', 1),
-(63, '2020_10_24_135436_create_transaksi_barangs_table', 1),
-(64, '2020_10_24_135455_create_settings_table', 1),
-(65, '2020_10_29_155156_create_viewusers_table', 1),
-(66, '2020_10_29_183642_create_pinjam_uangs_table', 1);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2020_10_07_185027_create_tbl_nasabah_table', 1),
+(5, '2020_10_07_185126_create_tbl_transaksi_table', 1),
+(6, '2020_10_07_185158_create_tbl_produk_table', 1),
+(7, '2020_10_24_135408_create_pembayaran_angsurans_table', 1),
+(8, '2020_10_24_135436_create_transaksi_barangs_table', 1),
+(9, '2020_10_24_135455_create_settings_table', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `nasabah`
+-- Table structure for table `nasabah`
 --
 
 CREATE TABLE `nasabah` (
@@ -77,7 +75,7 @@ CREATE TABLE `nasabah` (
   `nama` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `username` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(6) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `jkl` enum('pria','wanita') COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_hp` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `alamat` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -85,24 +83,22 @@ CREATE TABLE `nasabah` (
   `tgl_lahir` date DEFAULT NULL,
   `no_ktp` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` enum('1','0') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `status_brg` enum('1','0') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `nasabah`
+-- Dumping data for table `nasabah`
 --
 
-INSERT INTO `nasabah` (`id`, `kd_nasabah`, `nama`, `username`, `email`, `password`, `jkl`, `no_hp`, `alamat`, `tempat_lahir`, `tgl_lahir`, `no_ktp`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'NB-0001', 'ayu dewi', 'ayu', 'jik@thf', '123456', 'wanita', '87879', 'nhkhnku', 'maros', '2020-11-26', '6565', '1', '2020-11-06 01:01:17', '2020-11-06 01:01:17'),
-(2, 'NB-0002', 'dewi', 'dewi', 'dewi@ff', '123456', 'wanita', '085298540120', 'pekkae', 'borju', '2020-12-01', '787878', '1', '2020-11-06 01:06:24', '2020-11-06 01:06:24'),
-(3, 'NB-0003', 'rizal', 'aril', 'janjanhj@hbh', '123456', 'pria', '123333', 'barru', 'borju', '2020-11-27', '1212', '1', '2020-11-06 01:32:07', '2020-11-06 01:32:07'),
-(4, 'NB-0004', 'kurniawan', 'aan', 'aann@Ahbh', '12345', 'pria', '989898989', 'ff', 'barru', '2020-11-19', '23232', '1', '2020-11-11 14:57:01', '2020-11-11 14:57:01');
+INSERT INTO `nasabah` (`id`, `kd_nasabah`, `nama`, `username`, `email`, `password`, `jkl`, `no_hp`, `alamat`, `tempat_lahir`, `tgl_lahir`, `no_ktp`, `status`, `status_brg`, `created_at`, `updated_at`) VALUES
+(1, '1', 'io', 'i', 'ioo', 'io', 'pria', NULL, NULL, NULL, NULL, NULL, '1', '1', NULL, '2021-02-16 01:02:22');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -114,12 +110,12 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pembayaran_angsuran`
+-- Table structure for table `pembayaran_angsuran`
 --
 
 CREATE TABLE `pembayaran_angsuran` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `id_transaksi` bigint(20) UNSIGNED NOT NULL,
+  `id_transaksi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tenor` double NOT NULL,
   `jumlahbayar` double NOT NULL,
   `tgl_pinjam` date NOT NULL,
@@ -128,10 +124,30 @@ CREATE TABLE `pembayaran_angsuran` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `pembayaran_angsuran`
+--
+
+INSERT INTO `pembayaran_angsuran` (`id`, `id_transaksi`, `tenor`, `jumlahbayar`, `tgl_pinjam`, `denda`, `created_at`, `updated_at`) VALUES
+(3, 'TR-0001', 1, 55, '2021-02-05', -0, '2021-02-04 16:02:30', '2021-02-04 16:02:30'),
+(4, 'TR-0001', 2, 55, '2021-02-06', 1, '2021-02-04 16:02:47', '2021-02-04 16:02:47'),
+(5, 'TR-0002', 1, 101, '2021-02-05', -0, '2021-02-04 16:05:08', '2021-02-04 16:05:08'),
+(10, 'TR-0003', 1, 505, '2021-03-13', 10, '2021-02-09 20:59:49', '2021-02-09 20:59:49'),
+(11, 'TR-0003', 2, 505, '2021-02-16', 0, '2021-02-16 00:46:11', '2021-02-16 00:46:11'),
+(12, 'TR-0004', 1, 55.5, '2021-02-16', 0, '2021-02-16 00:50:42', '2021-02-16 00:50:42'),
+(13, 'TR-0004', 2, 55.5, '2021-02-16', 0, '2021-02-16 00:52:49', '2021-02-16 00:52:49'),
+(14, 'TR-0005', 1, 50500, '2021-02-16', 0, '2021-02-16 00:53:44', '2021-02-16 00:53:44'),
+(15, 'TR-0005', 2, 50500, '2021-02-16', 0, '2021-02-16 00:58:38', '2021-02-16 00:58:38'),
+(16, 'TR-0006', 1, 550, '2021-02-16', 0, '2021-02-16 01:02:44', '2021-02-16 01:02:44'),
+(17, 'TR-0006', 2, 550, '2021-02-16', 0, '2021-02-16 01:03:21', '2021-02-16 01:03:21'),
+(18, 'TR-0006', 3, 550, '2021-02-16', 0, '2021-02-16 01:04:04', '2021-02-16 01:04:04'),
+(19, 'TR-0006', 4, 550, '2021-02-16', 0, '2021-02-16 01:04:30', '2021-02-16 01:04:30'),
+(20, 'TR-0006', 5, 550, '2021-11-25', 13200, '2021-02-16 01:10:38', '2021-02-16 01:10:38');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk`
+-- Table structure for table `produk`
 --
 
 CREATE TABLE `produk` (
@@ -145,17 +161,16 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `produk`
+-- Dumping data for table `produk`
 --
 
 INSERT INTO `produk` (`id`, `nama_brg`, `stok_brg`, `status_brg`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'traktor', 2, '1', '0', '2020-11-06 23:12:41', '2020-11-06 23:12:41'),
-(2, 'sekop', 3, '1', '0', '2020-11-06 23:13:00', '2020-11-06 23:13:00');
+(1, '100', 100, '1', '0', '2021-02-04 17:10:27', '2021-02-04 17:10:27');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `setting`
+-- Table structure for table `setting`
 --
 
 CREATE TABLE `setting` (
@@ -169,10 +184,17 @@ CREATE TABLE `setting` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `setting`
+--
+
+INSERT INTO `setting` (`id`, `nama_desa`, `alamat`, `saldo`, `sisa_saldo`, `profit`, `created_at`, `updated_at`) VALUES
+(1, 'o', 'o', 210618, NULL, NULL, '2021-02-04 16:00:18', '2021-02-16 01:10:38');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi_barang`
+-- Table structure for table `transaksi_barang`
 --
 
 CREATE TABLE `transaksi_barang` (
@@ -181,16 +203,25 @@ CREATE TABLE `transaksi_barang` (
   `id_produk` bigint(20) UNSIGNED NOT NULL,
   `tgl_pinjam` date NOT NULL,
   `tgl_kembali` date NOT NULL,
-  `denda` double NOT NULL,
+  `hrg_sewa` double NOT NULL,
+  `total_sewa` double NOT NULL,
+  `denda` double DEFAULT NULL,
   `status` enum('1','0') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `transaksi_barang`
+--
+
+INSERT INTO `transaksi_barang` (`id`, `id_nasabah`, `id_produk`, `tgl_pinjam`, `tgl_kembali`, `hrg_sewa`, `total_sewa`, `denda`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, '2021-02-05', '2021-02-05', 100000, 0, NULL, '1', '2021-02-04 17:12:13', '2021-02-04 17:12:13');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi_pinjam_uang`
+-- Table structure for table `transaksi_pinjam_uang`
 --
 
 CREATE TABLE `transaksi_pinjam_uang` (
@@ -198,7 +229,7 @@ CREATE TABLE `transaksi_pinjam_uang` (
   `id_transaksi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_nasabah` bigint(20) UNSIGNED NOT NULL,
   `tgl_pinjam` date NOT NULL,
-  `tgl_kembali` date NOT NULL,
+  `tgl_kembali` date DEFAULT NULL,
   `jaminan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jumlah_pinjaman` double NOT NULL,
   `bayar_perbulan` double NOT NULL,
@@ -210,17 +241,21 @@ CREATE TABLE `transaksi_pinjam_uang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `transaksi_pinjam_uang`
+-- Dumping data for table `transaksi_pinjam_uang`
 --
 
 INSERT INTO `transaksi_pinjam_uang` (`id`, `id_transaksi`, `id_nasabah`, `tgl_pinjam`, `tgl_kembali`, `jaminan`, `jumlah_pinjaman`, `bayar_perbulan`, `bunga`, `tenor`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'TR-0001', 1, '2020-11-27', '2020-11-25', 'hp', 1200000, 120000, 20, 12, '1', '2020-11-06 01:02:52', '2020-11-06 01:02:52'),
-(2, 'TR-0002', 4, '2020-11-12', '2020-12-12', 'emas 1 kg', 200000, 20000, 20, 12, '1', '2020-11-11 14:58:47', '2020-11-11 14:58:47');
+(1, 'TR-0001', 1, '2021-02-05', '2021-02-05', '100', 100, 55, 10, 2, '0', '2021-02-04 15:59:18', '2021-02-04 16:02:47'),
+(2, 'TR-0002', 1, '2021-02-05', '2021-02-05', '1', 100, 101, 1, 1, '0', '2021-02-04 16:04:59', '2021-02-04 16:05:08'),
+(3, 'TR-0003', 1, '2021-02-10', '2021-02-10', '1', 1000, 505, 1, 2, '0', '2021-02-09 19:58:27', '2021-02-16 00:46:11'),
+(4, 'TR-0004', 1, '2021-02-16', NULL, '1', 100, 55.5, 11, 2, '0', '2021-02-16 00:50:30', '2021-02-16 00:52:49'),
+(5, 'TR-0005', 1, '2021-02-16', NULL, '1', 100000, 50500, 1, 2, '0', '2021-02-16 00:53:23', '2021-02-16 00:58:38'),
+(6, 'TR-0006', 1, '2021-02-16', NULL, '10', 10000, 550, 10, 2, '1', '2021-02-16 01:02:22', '2021-02-16 01:02:22');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -236,158 +271,134 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'adyat', 'adyat@gmail.com', NULL, '$2y$10$JDmWu3C/kszmSUC2PBcDxOtFfo4vbOQ4prl6jXGCN/8Z9mziZSxtS', '1', NULL, '2020-11-06 00:59:51', '2020-11-06 00:59:51');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `viewusers`
---
-
-CREATE TABLE `viewusers` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(1, 'ilham', 'ilham@gmail.com', NULL, '$2y$10$BA6X53MBhDQSi.M8opvAWuXZ.Irt4/nqjBgVM06qBnfxtCpJhVHzK', '1', NULL, '2021-02-03 12:22:03', '2021-02-03 12:22:03');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `nasabah`
+-- Indexes for table `nasabah`
 --
 ALTER TABLE `nasabah`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indeks untuk tabel `pembayaran_angsuran`
+-- Indexes for table `pembayaran_angsuran`
 --
 ALTER TABLE `pembayaran_angsuran`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `produk`
+-- Indexes for table `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `setting`
+-- Indexes for table `setting`
 --
 ALTER TABLE `setting`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `transaksi_barang`
+-- Indexes for table `transaksi_barang`
 --
 ALTER TABLE `transaksi_barang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `transaksi_pinjam_uang`
+-- Indexes for table `transaksi_pinjam_uang`
 --
 ALTER TABLE `transaksi_pinjam_uang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Indeks untuk tabel `viewusers`
---
-ALTER TABLE `viewusers`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `nasabah`
+-- AUTO_INCREMENT for table `nasabah`
 --
 ALTER TABLE `nasabah`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT untuk tabel `pembayaran_angsuran`
---
-ALTER TABLE `pembayaran_angsuran`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `produk`
---
-ALTER TABLE `produk`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `setting`
---
-ALTER TABLE `setting`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `transaksi_barang`
---
-ALTER TABLE `transaksi_barang`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `transaksi_pinjam_uang`
---
-ALTER TABLE `transaksi_pinjam_uang`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `users`
---
-ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `viewusers`
+-- AUTO_INCREMENT for table `pembayaran_angsuran`
 --
-ALTER TABLE `viewusers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `pembayaran_angsuran`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `produk`
+--
+ALTER TABLE `produk`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `setting`
+--
+ALTER TABLE `setting`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `transaksi_barang`
+--
+ALTER TABLE `transaksi_barang`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `transaksi_pinjam_uang`
+--
+ALTER TABLE `transaksi_pinjam_uang`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
