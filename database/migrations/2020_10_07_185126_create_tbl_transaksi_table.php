@@ -18,7 +18,7 @@ class CreateTblTransaksiTable extends Migration
             $table->string('id_transaksi');
             $table->foreignId('id_nasabah');
             $table->date('tgl_pinjam');
-            $table->date('tgl_kembali');
+            $table->date('tgl_kembali')->nullable();;
             $table->string('jaminan');
             $table->double('jumlah_pinjaman');
             $table->double('bayar_perbulan');

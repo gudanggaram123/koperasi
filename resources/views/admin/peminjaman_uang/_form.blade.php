@@ -90,15 +90,7 @@
             </div>
         </div>
 
-        <div class="col-sm-3">
-            <div class="form-group">
-                <label>Jatuh Tempo</label>
-                <input type="date" required name="tgl_kembali" max="3000-12-31" min="1000-01-01" value="{{ isset($data->tgl_lahir) ? $data->tgl_lahir : null  }}" class="form-control" />
-                <div class="input-group">
-                    <div class="input-group-prepend"></div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>
 
