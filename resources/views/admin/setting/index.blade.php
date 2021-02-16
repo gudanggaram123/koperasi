@@ -21,14 +21,14 @@
                                 <img class="profile-user-img img-fluid img-circle"
                                     src="{{ asset('assets/dist/img/barru.png') }}" alt="User profile picture">
                             </div>
-                            <h3 class="profile-username text-center">jjkkj</h3>
+                            <h3 class="profile-username text-center">Bumdes</h3>
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
                                     <b>Saldo :</b> <a class="float-right">{{$data->saldo}}</a>
                                 </li> 
-                                <li class="list-group-item">
+                                <!-- <li class="list-group-item">
                                     <b>Profit :</b> <a class="float-right"></a>
-                                </li>
+                                </li> -->
                                 <li class="list-group-item">
                                     <b>Desa :</b> <a class="float-right">{{$data->nama_desa}}</a>
                                 </li> 

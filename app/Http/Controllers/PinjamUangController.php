@@ -53,6 +53,11 @@ class PinjamUangController extends Controller
     public function store(Request $request)
     {
         $model = $request->all();
+        $setting = Setting::first();
+        $saldosetting['saldo'] = $setting['saldo'] - $model['jumlah_pinjaman'];
+        if($saldosetting['saldo'] <= 0){
+            return redirect('/peminjaman_uang')->with('toast_success', 'Saldo Tidak cukup');
+        }
         PinjamUang::create($request->all());
         $data['status'] = 1;
         $data['id'] = $model['id_nasabah'];
@@ -61,6 +66,10 @@ class PinjamUangController extends Controller
         if($nasabah->update($data)){
             // dd($nasabah);
         }
+        $setting = Setting::first();
+        $saldosetting['saldo'] = $setting['saldo'] - $model['jumlah_pinjaman'];
+        
+        $setting->update($saldosetting);
         
         return redirect('/peminjaman_uang')->with('toast_success', 'Berhasil Menambahkan Pinjaman');
     }
