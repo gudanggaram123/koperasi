@@ -25,6 +25,7 @@ Route::get('datanasabah/inputnasabah','CrudController@tambahdatanasabah')->name(
 
 Route::get('/','HomeController@nasabah');
 Route::post('/','HomeController@datanasabah')->name('data_nasabah');
+Route::get('/home/produk','HomeController@produk');
 
 Route::get('report','HomeController@report')->name('report');
 Route::post('pembayaran/export','PembayaranController@export_excel')->name('export.pembayaran');

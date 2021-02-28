@@ -38,8 +38,7 @@
                                     <th>id Transaksi</th> 
                                     <th>Jumlah Pinjaman</th>
                                     <th>Pembayaran Ke</th>
-                                    <th>Denda</th>
-                                    <th>Status</th>
+                                    <th>Denda</th> 
                                     <th width="50px">Action</th>
                                 </tr>
                                 </thead>
@@ -51,14 +50,8 @@
                                         <td>{{ $v->id_transaksi}}</td> 
                                         <td>{{ $v->jumlahbayar}}</td>
                                         <td>{{ $v->tenor}}</td>
-                                        <td>{{ $v->denda}}</td>
-                                        <td>{{ $v->status ==1 ? "Belum Lunas" : "Lunas"}}</td> 
-                                        <td width="13%"> 
-                                            <a href="{{route('edit.pembayaran',$v->id)}}">
-                                                <button class="btn btn-info btn-xs" id="add">
-                                                    <i class="fa fa-edit"></i> 
-                                                </button>
-                                            </a>
+                                        <td>{{ $v->denda}}</td> 
+                                        <td width="13%">  
                                             <a href="{{route('delete.pembayaran',$v->id)}}">
                                                 <button class="btn btn-danger btn-xs" id="add">
                                                     <i class="fa fa-trash"></i> 
@@ -71,11 +64,7 @@
                                 </tbody>
                             </table>
 
-                        </div>
-                        <div class="card-footer">
-                            {{ $datau->links() }}
-
-                        </div>
+                        </div> 
 
                         <!-- /.card-body -->
                     </div>

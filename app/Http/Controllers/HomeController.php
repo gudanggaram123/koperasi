@@ -7,6 +7,7 @@ use App\Model\nasabah;
 use App\Model\PinjamUang;
 use App\Model\PembayaranAngsuran;
 use App\Model\pinjambrg;
+use App\Model\produk;
 
 class HomeController extends Controller
 {
@@ -50,7 +51,14 @@ class HomeController extends Controller
         $trx = PinjamUang::where('id_nasabah','=', $nasabah['id'] )->first();
         $PembayaranAngsuran = PembayaranAngsuran::where('id_transaksi','=',$trx['id_transaksi'])->get();
         $pinjambrg = pinjambrg::where('id_nasabah', '=', $nasabah['id'])->get();
-        // dd($pinjam_uang);
+        // dd($pinjambrg);
         return view('nasabah.layouts.app', compact('nasabah','pinjam_uang', 'PembayaranAngsuran', 'pinjambrg'));
+    }
+
+    public function produk()
+    {
+        $produk = produk::all();
+        return view('nasabah.layouts.produk', compact('produk'));
+
     }
 }

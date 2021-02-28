@@ -5,7 +5,7 @@ use App\Model\nasabah;
 use App\Model\PinjamUang;
 use App\Model\Setting;
 use Illuminate\Http\Request;
-
+use DB;
 class PinjamUangController extends Controller
 {
     /**
@@ -15,8 +15,29 @@ class PinjamUangController extends Controller
      */
     public function index()
     {
-        $datau = PinjamUang::all();
+        // $datau = PinjamUang::all()->orderBy('id', 'desc')->get();
+        $datau = DB::table('transaksi_pinjam_uang')
+                ->orderByRaw('tgl_pinjam DESC')
+                ->get();
+                
+        $datau = $datau->toArray();
+
+        do
+        {
+            $swapped = false;
+            for( $i = 0, $c = count( $datau ) - 1; $i < $c; $i++ )
+            {
+                if( $datau[$i] < $datau[$i + 1] )
+                {
+                    list( $datau[$i + 1], $datau[$i] ) =
+                        array( $datau[$i], $datau[$i + 1] );
+                    $swapped = true;
+                }
+            }
+        }
+        while( $swapped );
         // dd($datau);
+        
         return view('admin.peminjaman_uang.index', compact('datau'));
     }
 

@@ -82,8 +82,8 @@
 
             <tr>
                 <td width="10px">{{$no++}}</td>
-                <td>{{$value->nama}}</td>
-                <td>{{$value->nama_brg}}</td>
+                <td> {{ App\Model\nasabah::find($value->id_nasabah)->nama }} </td> 
+                <td> {{ App\Model\produk::find($value->id_produk)->nama_brg }} </td>  
                 <td>{{$value->tgl_pinjam}}</td>
                 <td>{{$value->tgl_kembali}}</td>
                 <td>{{$value->hrg_sewa}}</td>

@@ -9,8 +9,8 @@ use DateTime;
 use App\Export\PembayaranAngsuranExport;
 use App\Export\PeminjamanBarangExport;
 use Maatwebsite\Excel\Facades\Excel;
-
 use Illuminate\Http\Request;
+use DB;
 
 class PembayaranController extends Controller
 {
@@ -21,8 +21,27 @@ class PembayaranController extends Controller
      */
     public function index()
     {
-        $datau = PembayaranAngsuran::paginate(10);
-        
+        $datau = DB::table('pembayaran_angsuran')
+                // ->orderByRaw('created_at desc') 
+                ->get();
+
+        $datau = $datau->toArray();
+        do
+        {
+            $swapped = false;
+            for( $i = 0, $c = count( $datau ) - 1; $i < $c; $i++ )
+            {
+                if( $datau[$i] < $datau[$i + 1] )
+                {
+                    list( $datau[$i + 1], $datau[$i] ) =
+                        array( $datau[$i], $datau[$i + 1] );
+                    $swapped = true;
+                }
+            }
+        }
+        while( $swapped );
+        // dd($datau[0]);
+
         return view('admin.pembayaran.index', compact('datau'));
         
     }

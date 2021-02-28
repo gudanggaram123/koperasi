@@ -39,8 +39,10 @@ ShouldAutoSize
                                 END
                             )')
                     );
+
         return $data;
     }
+
 
     public function headings(): array
     {

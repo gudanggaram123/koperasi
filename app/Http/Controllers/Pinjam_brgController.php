@@ -30,7 +30,8 @@ class Pinjam_brgController extends Controller
             ->join('nasabah', 'nasabah.id', '=', 'transaksi_barang.id_nasabah')
             ->get();
 
-        // dd($data);
+        
+
         return view('admin.pinjam_barang.index',compact('data'));
     }
 
